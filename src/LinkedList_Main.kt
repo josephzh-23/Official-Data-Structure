@@ -16,6 +16,11 @@ fun main(args:Array<String>){
 
     println("get kth node  "+ list.printMiddle())
 
+    // Used to remove the kth node
+    var node = list.removeKthNodeFromEnd(3)
+    println("get kth node  "+node.value)
+
+
 }
 
 

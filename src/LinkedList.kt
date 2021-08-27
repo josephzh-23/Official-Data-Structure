@@ -66,6 +66,32 @@ class LinkedList {
         size--
     }
 
+
+    fun removeKthNodeFromEnd( k: Int):Node{
+
+        check(!isEmpty)
+        var a = first
+        var b = first
+
+        // Move 2nd pter forward
+        // until a and b are k-1 apart
+        for (i in 0 until k - 1) {
+            b = b!!.next
+
+            // If b is null, k > size of linkedlist
+            requireNotNull(b)
+        }
+
+        // Keep moveing forward
+        while (b !== last) {
+            a = a!!.next
+            b = b!!.next
+        }
+
+        // a now points at the kth node we want to remove
+        a!!.next = a.next?.next
+        return a
+    }
     fun removeLast() {
         if (isEmpty) throw NoSuchElementException()
         if (first === last) {
