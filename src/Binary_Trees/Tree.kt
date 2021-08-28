@@ -84,7 +84,7 @@ class Tree {
         return height(root)
     }
 
-    
+
     // Will find the height of a node
     // The way to check for is Leaf is clear and simple
     private fun height(root: Node?): Int {

@@ -5,9 +5,9 @@ class LinkedList {
         var next: Node? = null
     }
 
-    private var first: Node? = null
-    private var last: Node? = null
-    private var size = 0
+     var first: Node? = null
+   var last: Node? = null
+    var size = 0
 
     fun addLast(item: Int) {
         // Here the node.next -> null automatically when
@@ -23,6 +23,42 @@ class LinkedList {
         size++
     }
 
+
+ fun printList(){
+
+     var cur = first
+
+     // While not the last element
+
+     while(cur!=null) {
+         print("the value is  ${cur!!.value}")
+         cur = cur!!.next
+     }
+ }
+
+    fun removeKthNodeFromEnd_test( k: Int):Node{
+
+        // 10 , 20 , 30
+        for (i in 0 until k -1){
+            var previous = getPrevious(last)
+
+        }
+    }
+
+    fun insertAfter (prevNode: Node, item: Int){
+
+        /* 1. Check if the given Node is null */
+        if (prevNode == null)
+        {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+
+        val node = Node(item)
+        node.next = prevNode
+
+        prevNode.next = node
+    }
     fun addFirst(item: Int) {
         val node: Node = Node(item)
         if (isEmpty) {
@@ -65,7 +101,6 @@ class LinkedList {
         }
         size--
     }
-
 
     fun removeKthNodeFromEnd( k: Int):Node{
 
