@@ -25,11 +25,12 @@ class PriorityQueue {
     // Check the item we would like to insert
     // Return the position of where the insert can happen
     private fun shfit_Items_To_Insert(item: Int): Int {
+
         var i: Int
         i = count - 1
         while (i >= 0) {
 
-            // copy the item to the right here 
+            // copy the item to the right if the item_insert < items[i]
             if (items[i] > item) {
                 items[i + 1] = items[i]
             }

@@ -1,14 +1,44 @@
 package Binary_Trees
 
 
+// This tree is a binary search tree
 class Tree {
     inner class Node(val value: Int) {
         var leftChild: Node? = null
         var rightChild: Node? = null
+
+        // Key used for searching
+        var key :Int? =null
+
         override fun toString(): String {
             return "Node=$value"
         }
     }
+
+    // Note the root will be different in each iterations
+//    fun search_for_value(root: Node, value: Int):Int{
+//
+//        var cur = root
+//
+//        if(value == cur?.value!!){
+//            return cur.value
+//
+//        }else if (value < cur.value){
+//
+//            if(cur.leftChild!=null) {
+//                search_for_value(cur.leftChild!!)
+//            }
+//        }else{
+//
+//                if(cur.leftChild!=null) {
+//                    search_for_value(cur.leftChild!!)
+//                }
+//        }
+//
+//
+//    }
+//
+
 
     private var root: Node? = null
     fun insert(value: Int) {
@@ -22,11 +52,14 @@ class Tree {
 
             if (value < current!!.value) {
 
-                // We have reached the bottom here
+                // We have reached the end here
                 if (current.leftChild == null) {
                     current.leftChild = node
                     break
                 }
+
+                // If we haven't reached the end
+                // keep traversing
                 current = current.leftChild
             } else {
                 if (current.rightChild == null) {
@@ -171,6 +204,9 @@ class Tree {
         getNodesAtDistance(root, distance, list)
         return list
     }
+
+
+
 
     private fun getNodesAtDistance(root: Node?, distance: Int, list: ArrayList<Int>) {
         if (root == null) return

@@ -14,6 +14,8 @@ class ArrayQueue(capacity: Int) {
   // Rear pter to last elem in the queue
   private var rear = 0
   private var front = 0
+
+  // Count # of item in an array
   private var count = 0
 
   // When we enqueue -> must increase the rear pter

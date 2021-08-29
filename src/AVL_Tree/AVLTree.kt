@@ -30,6 +30,7 @@ class AVLTree {
          */
         if (root == null) return AVLNode(value)
 
+
         if (value < root.value) root.leftChild = insert(root.leftChild, value)
         else root.rightChild = insert(root.rightChild, value)
 
@@ -41,6 +42,8 @@ class AVLTree {
     }
 
     private fun balance(root: AVLNode): AVLNode? {
+
+
         if (isLeftHeavy(root)) {
             if (balanceFactor(root.leftChild) < 0) root.leftChild = rotateLeft(root.leftChild)
             return rotateRight(root)
@@ -65,6 +68,8 @@ class AVLTree {
 
         root.leftChild = newRoot!!.rightChild
         newRoot.rightChild = root
+
+        // Need to update the
         setHeight(root)
         setHeight(newRoot)
         return newRoot

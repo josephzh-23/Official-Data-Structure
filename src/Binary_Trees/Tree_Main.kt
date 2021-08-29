@@ -5,7 +5,12 @@ fun main(){
     var tree = Tree()
     tree.insert(7)
     tree.insert(4)
-    tree.insert(5)
+    tree.insert(9)
+    tree.insert(1)
+    tree.insert(6)
+    tree.insert(8)
+
+    tree.traverseInOrder()
     println("height of the tree is ${tree.height()}")
 
     var tree2 = Tree()

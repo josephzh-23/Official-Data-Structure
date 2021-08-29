@@ -36,14 +36,6 @@ class LinkedList {
      }
  }
 
-    fun removeKthNodeFromEnd_test( k: Int):Node{
-
-        // 10 , 20 , 30
-        for (i in 0 until k -1){
-            var previous = getPrevious(last)
-
-        }
-    }
 
     fun insertAfter (prevNode: Node, item: Int){
 
@@ -175,6 +167,7 @@ class LinkedList {
 
     fun reverse() {
         if (isEmpty) return
+
         var previous = first
         var current = first!!.next
         while (current != null) {
