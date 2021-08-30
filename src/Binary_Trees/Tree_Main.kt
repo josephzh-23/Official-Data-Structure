@@ -2,7 +2,7 @@ package Binary_Trees
 
 fun main(){
 
-    var tree = Tree()
+    var tree = Binary_Tree()
     tree.insert(7)
     tree.insert(4)
     tree.insert(9)
@@ -13,7 +13,7 @@ fun main(){
     tree.traverseInOrder()
     println("height of the tree is ${tree.height()}")
 
-    var tree2 = Tree()
+    var tree2 = Binary_Tree()
     tree2.insert(7)
     tree2.insert(4)
     tree2.insert(5)

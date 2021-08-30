@@ -28,4 +28,20 @@ fun main(){
     graph2.addEdge("B", "P")
 
     var list = graph2.topologicalSort()
+
+    // testing out getshortest path
+
+    // Testing out topogloical order graph
+    var graph3 = WeightedGraph()
+
+    graph3.addNode("A")
+    graph3.addNode("B")
+    graph3.addNode("C")
+    graph3.addEdge("A", "B", 1)
+     graph3.addEdge("B", "C", 2)
+
+    graph3.addEdge("A", "C", 10)
+
+    var path = graph3.getShortestPath("A", "C")
+    print(path)
 }

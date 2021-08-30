@@ -104,10 +104,14 @@ class Graph {
         }
     }
 
+
+    // Note with tree we have done a breadth first traversal here
+
     fun traverseBreadthFirst(root: String) {
         val node = nodes[root] ?: return
         val visited: MutableSet<Node> = HashSet()
         val queue: Queue<Node> = ArrayDeque()
+
         queue.add(node)
         while (!queue.isEmpty()) {
 

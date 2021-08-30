@@ -33,6 +33,8 @@ fun main (){
 internal class Solution2 {
     // level: 1           2
     // Ex:  [5] ,    [6, 7]
+
+    // each level would have a list
     var levels: MutableList<MutableList<Int>> = ArrayList()
 
     fun helper(node: TreeNode?, level: Int) {
@@ -42,7 +44,7 @@ internal class Solution2 {
 
         // fulfil the current level
         // levels[0]    ->  [ 1, 2, 4]
-        levels[level].add(node!!.`val`)
+        levels[level].add(node!!.value)
 
         // If leaf nodes this will end
         if (node.left != null) helper(node.left, level + 1)

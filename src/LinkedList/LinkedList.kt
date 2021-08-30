@@ -1,4 +1,4 @@
-
+package LinkedList
 
 class LinkedList {
     inner class Node(val value: Int) {
@@ -17,7 +17,10 @@ class LinkedList {
             last = node
             first = last
         } else {
+
+
             last!!.next = node
+            // Note here node.next = null here
             last = node
         }
         size++
@@ -31,7 +34,7 @@ class LinkedList {
      // While not the last element
 
      while(cur!=null) {
-         print("the value is  ${cur!!.value}")
+         print(" ${cur!!.value}")
          cur = cur!!.next
      }
  }
@@ -94,7 +97,7 @@ class LinkedList {
         size--
     }
 
-    fun removeKthNodeFromEnd( k: Int):Node{
+    fun removeKthNodeFromEnd( k: Int): Node {
 
         check(!isEmpty)
         var a = first
@@ -168,10 +171,13 @@ class LinkedList {
     fun reverse() {
         if (isEmpty) return
 
+        // Make the preiovus first first before anything else
         var previous = first
         var current = first!!.next
         while (current != null) {
             val next = current.next
+
+            // Reverse diretion here
             current.next = previous
             previous = current
             current = next

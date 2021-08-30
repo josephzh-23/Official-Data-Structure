@@ -6,7 +6,7 @@ import java.util.*
 /*
 Dictionary : [key, entries]
     key: some hashed value
-   entries: arrayOf<LinkedList<Entry>>()   aka a bucket
+   entries: arrayOf<LinkedList.LinkedList<Entry>>()   aka a bucket
 
    - a bucket will have a bunch [key, linkedList<Entry>]
         each entry will correspond with a unique key
@@ -79,7 +79,7 @@ class HashTable {
 
         val bucket = getBucket(key)
         /*
-        Here we iterate over this bucket (array<LinkedList<Entry>>
+        Here we iterate over this bucket (array<LinkedList.LinkedList<Entry>>
         If we find an entry with same key
         - return its value
          */

@@ -2,7 +2,7 @@ package Binary_Trees
 
 
 // This tree is a binary search tree
-class Tree {
+class Binary_Tree {
     inner class Node(val value: Int) {
         var leftChild: Node? = null
         var rightChild: Node? = null
@@ -161,7 +161,7 @@ class Tree {
         return Math.min(Math.min(left, right), root.value)
     }
 
-    fun equals(other: Tree?): Boolean {
+    fun equals(other: Binary_Tree?): Boolean {
         return if (other == null) false else equals(root, other.root)
     }
 

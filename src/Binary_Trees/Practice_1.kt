@@ -42,7 +42,7 @@ fun main() {
                 }
 
                 // Add the root to the list until we get to the leaf node
-                res.add(root.`val`)
+                res.add(root.value)
                 if (root.right != null) {
                     helper(root.right, res)
                 }

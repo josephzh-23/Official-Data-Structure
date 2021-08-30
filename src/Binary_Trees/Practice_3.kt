@@ -1,93 +1,80 @@
 package Binary_Trees
 
+import java.util.*
 
-   class Node(var `val`: Int) {
-       var left: Node? = null
-       var right: Node? = null
-       var next: Node? = null
-   }
 
 fun main () {
     // 1
     //2 ->  3
     // loop thru each node first
-    val root = Node(5)
-    val test2 = Node(6)
-    val test3 = Node(7)
-    val test4 = Node(7)
+    val root =TreeNode(5)
+    val test2 = TreeNode(6)
+    val test3 =TreeNode(7)
+    val test4 = TreeNode(7)
 
-    val test5 = Node(7)
+    val test5 =TreeNode(7)
 
 
     root.left = test2
     root.right = test3
     test2.left = test4
     test2.right = test5
-    val s = Practice_3.Solution3()
-
-    val height =  s.height(root)
-
-    print(height)
 
 
     val i =0
 
-        for (i in 0..height) {
-            for (value in s.getNodesAtDistance(root, i)) println(value)
+    var s = Solution3()
+    val result = s.connect(root)
+
+
+
+    }
+internal class Solution3 {
+    fun connect(root: TreeNode?): TreeNode? {
+        if (root == null) {
+            return root
         }
 
+        // Initialize a queue data structure which contains
+        // just the root of the tree
+        val Q: Queue<TreeNode> = LinkedList<TreeNode>()
+        Q.add(root)
 
-}
-class Practice_3 {
+        // Outer while loop which iterates over
+        // each level
+        while (Q.size > 0) {
 
+            // Note the size of the queue
+            val size = Q.size
 
+            // Iterate over all the nodes on the current level
+            for (i in 0 until size) {
 
-    class Solution3 {
-//        fun connect(root: Node?): Node? {
-//
-//        }
+                // Pop a node from the front of the queue
+                val node: TreeNode = Q.poll()
 
+                // This check is important. We don't want to
+                // establish any wrong connections. The queue will
+                // contain nodes from 2 levels at most at any
+                // point in time. This check ensures we only
+                // don't establish next pointers beyond the end
+                // of a level
+                if (i < size - 1) {
+                    node.next = Q.peek()
+                }
 
-        // Will find the height of a node
-        // The way to check for is Leaf is clear and simple
-        fun height(root: Node?): Int {
-            // A base condition is always needed
-            if (root == null) return -1
-            return if (isLeaf(root)) 0 else 1 + Math.max(
-                    height(root.left),
-                    height(root.right)
-            )
-        }
-
-
-        fun isLeaf(node: Node): Boolean {
-            return node!!.left == null && node.right == null
-        }
-
-        fun getNodesAtDistance(root: Node?, distance: Int, list: ArrayList<Int>) {
-            if (root == null) return
-            if (distance == 0) {
-                list.add(root.`val`)
-                return
+                // Add the children, if any, to the back of
+                // the queue
+                if (node.left != null) {
+                    Q.add(node.left)
+                }
+                if (node.right != null) {
+                    Q.add(node.right)
+                }
             }
-
-            getNodesAtDistance(root?.left, distance - 1, list)
-            getNodesAtDistance(root?.right, distance - 1, list)
         }
 
-        // THis is modified  to include the root node
-
-        fun getNodesAtDistance(root: Node, distance: Int): ArrayList<Int> {
-            val list = ArrayList<Int>()
-            getNodesAtDistance(root, distance, list)
-            return list
-        }
-
-//    fun traverseLevelOrder() {
-//        for (i in 0..height()) {
-//            for (value in getNodesAtDistance(i)) println(value)
-//        }
-//    }
+        // Since the tree has now been modified, return the root node
+        return root
     }
-    }
-
+}
