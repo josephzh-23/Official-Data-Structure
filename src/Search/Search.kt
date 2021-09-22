@@ -6,6 +6,8 @@ class Search {
         return -1
     }
 
+
+
     fun binarySearchRec(array: IntArray, target: Int): Int {
         return binarySearchRec(array, target, 0, array.size - 1)
     }
@@ -36,6 +38,7 @@ class Search {
         var right = array.size - 1
         while (left <= right) {
             val middle = (left + right) / 2
+
             if (array[middle] == target) return middle
             if (target < array[middle]) // UPdate the right pointer if in the left partition
                 right = middle - 1 else  // Otherwise update the left pointer
